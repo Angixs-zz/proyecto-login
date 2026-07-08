@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // 3. SECCIÓN DE VALIDACIONES UTILIZANDO LA UTILERÍA MODIFICADA
 
             if (!soloLetras(nombre, 'errorNombreCaptura')) {
-                return; // Pinta el error en pantalla y detiene
+                return; 
             }
 
             if (!validarCorreo(correo, 'errorCorreoCaptura')) {
@@ -61,22 +61,32 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            if (!esMayorDeEdad(fechaNac, 'errorFechaNacCaptura')) {
+            if (fechaNac === "") {
+                document.getElementById('errorFechaNacCaptura').innerText = "Por favor, seleccione la fecha de nacimiento.";
                 return;
             }
+            
+            let edadCalculada = calcularEdad(fechaNac, document.getElementById('errorFechaNacCaptura'));
+            if (edadCalculada === false) {
+                return; 
+            }
 
-            //  LLENAR Y MOSTRAR EL MODAL
-
-            // 1. Llenamos los span vacíos del HTML con los valores
+            
             document.getElementById('modalNombre').innerText = nombre;
             document.getElementById('modalCorreo').innerText = correo;
             document.getElementById('modalControl').innerText = numcontrol;
             document.getElementById('modalCurp').innerText = curp.toUpperCase();
             document.getElementById('modalTel').innerText = telFormateado;
-
-            // 2. Calculamos la edad y la inyectamos
-            let edadCalculada = calcularEdad(fechaNac);
             document.getElementById('modalEdad').innerText = edadCalculada;
+
+            const modalEstado = document.getElementById('modalEstado');
+            if (edadCalculada >= 18) {
+                modalEstado.innerText = "Mayor de edad";
+                modalEstado.style.color = "#025b0c"; 
+            } else {
+                modalEstado.innerText = "Menor de edad";
+                modalEstado.style.color = "#dc3545"; 
+            }
 
             // 3. Levantamos el modal usando la librería de Bootstrap
             let modalRegistro = new bootstrap.Modal(document.getElementById('modalRegistro'));

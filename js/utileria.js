@@ -98,26 +98,23 @@ function esMayorDeEdad(fechaNacimiento, idError = null) {
     }
 }
 
-function calcularEdad(fechaNacimiento) {
-  
+/*
+-- Funcion: Calcular edad (CORREGIDA SIN ALERT)
+*/
+function calcularEdad(fechaNacimiento, elError = null) {
     if (fechaNacimiento === "") {
-        alert("Ingrese la fecha de nacimiento");
+        if (elError) elError.innerText = "Ingrese la fecha de nacimiento";
         return false;
     }
 
-    // Nos encoontramos que se declaran nacimiento que tomara el valor de fechaNacimiento que se ingreso
-    // Luego tendremos fechaActual que tomara la fecha del dia actual cuando se ejecute la funcion
-    // Y de ahi se sacan los valores de año, mes y dia de ambas fechas
     let nacimiento = new Date(fechaNacimiento);
     let fechaActual = new Date();
 
-    
     if (nacimiento > fechaActual) {
-        alert("La fecha de nacimiento no puede ser mayor a la fecha actual");
+        if (elError) elError.innerText = "La fecha de nacimiento no puede ser mayor a la fecha actual";
         return false;
     }
 
-    // Una vez que lo logre validar vamos a separar ambas fechas por sus elementoos dia mes y año
     let añoNacimiento = nacimiento.getFullYear();
     let mesNacimiento = nacimiento.getMonth();
     let diaNacimiento = nacimiento.getDate();
@@ -125,13 +122,9 @@ function calcularEdad(fechaNacimiento) {
     let mesActual = fechaActual.getMonth();
     let diaActual = fechaActual.getDate();
 
-    // Una vez separados es facil saber cual es la edad, soloo al año actual le restamos el año de nacimiento
     let edad = añoActual - añoNacimiento;
-    // Pero si lo hacemos un poco mas logico debemos tener validaciones
-    // imaginemos que nace en diciembre y aun es abril, pues aun no cumple años y no debemos restarle 1 a la edad
     if (mesActual < mesNacimiento) {
         edad = edad - 1;
-        // luego tenemos otro imaginemos que ya estaos en diciembre pero aun no lelgamos al dia en que nacio pues lo mismo si no hemos llegado que se reste 1
     } else if (mesActual === mesNacimiento && diaActual < diaNacimiento) {
         edad = edad - 1;
     }
@@ -140,11 +133,26 @@ function calcularEdad(fechaNacimiento) {
 }
 
 /*
--- Funcion: Validar si una persona es mayor de edad
--- ¿Que hace? Verifica si una persona tiene 18 años o mas usando su fecha de nacimiento
--- Parametros: Recibe la fecha de nacimiento ingresada por el usuario
--- Retorno: true si la persona es mayor de edad, false si no cumple o si la fecha no es valida
+-- Funcion: Validar si una persona es mayor de edad (CORREGIDA SIN ALERT)
 */
+function esMayorDeEdad(fechaNacimiento, idError = null) {
+    let elError = idError ? document.getElementById(idError) : null;
+    if (elError) elError.innerText = "";
+
+    // Le pasamos el contenedor de error también a la función de calcularEdad
+    let edad = calcularEdad(fechaNacimiento, elError);
+
+    if (edad === false) {
+        return false;
+    }
+
+    if (edad >= 18) {
+        return true;
+    } else {
+        if (elError) elError.innerText = "La persona debe ser mayor de edad para registrarse";
+        return false;
+    }
+}
 
 
 /*
