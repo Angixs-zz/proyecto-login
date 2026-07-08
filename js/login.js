@@ -1,4 +1,5 @@
 // Atrapamos el botón de Entrar por su ID
+// hola
 let botonEntrar = document.getElementById('botonLogin');
 
 botonEntrar.addEventListener('click', function (evento) {

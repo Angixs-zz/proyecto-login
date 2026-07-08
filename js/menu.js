@@ -31,9 +31,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (enlaceCaptura && pantallaBienvenida && seccionFormulario) {
         enlaceCaptura.addEventListener('click', (e) => {
-            e.preventDefault(); // Evita que la página salte por el '#'
+            e.preventDefault(); 
             pantallaBienvenida.style.display = 'none';   // Esconde bienvenida
             seccionFormulario.style.display = 'block';    // Muestra formulario
+        });
+    }
+
+    // ACCIÓN 4: REGRESAR A LA PANTALLA PRINCIPAL ===
+    const btnInicio = document.getElementById('btnInicio');
+
+    if (btnInicio && pantallaBienvenida && seccionFormulario) {
+        btnInicio.addEventListener('click', () => {
+            seccionFormulario.style.display = 'none';     // Esconde el formulario
+            pantallaBienvenida.style.display = 'block';   // Vuelve a mostrar la bienvenida
         });
     }
 });
