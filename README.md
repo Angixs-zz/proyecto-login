@@ -94,9 +94,9 @@ Es nuestra biblioteca global con funciones que podemos llamar en cualquier parte
 
 El desarrollo de nuestro sistema lo fuimos armando de forma ordenada y por etapas de la siguiente manera:
 
-## 🚀 Mi Proceso de Creación (Paso a Paso)
+## Proceso de Creación (Paso a Paso)
 
-El desarrollo del proyecto lo fuimos armando de forma ordenada y por etapas. En lo personal, me encargué de maquetar la interfaz del panel principal, programar el comportamiento del menú dinámico, asegurar las vistas y estructurar la lógica del modal de éxito junto con las ayudas visuales. Este fue mi proceso paso a paso:
+El desarrollo del proyecto lo fuimos armando de forma ordenada y por etapas. 
 
 ### 🔹 Fase 1: Maquetación y Diseño del Panel Principal (HTML y CSS)
 * **Paso 1 (Esqueleto del Sistema) - [Yareli Yazmin]:** Creé la base de nuestro archivo principal `index.html` utilizando etiquetas estructurales fijas de HTML5 (`<header>`, `<aside>` y `<main>`). En esta estructura dejé separados y listos los dos bloques grandes de la zona de trabajo: la tarjeta con el mensaje de bienvenida y la sección oculta del formulario de captura del alumno.
