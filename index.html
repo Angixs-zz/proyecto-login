@@ -139,6 +139,33 @@
         </section>
     </main>
 
+
+    <div class="modal fade" id="modalRegistro" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="border-radius: 15px; border: 2px solid #044201;">
+                <div class="modal-header text-white" style="background-color: #044201;">
+                    <h5 class="modal-title fw-bold">✅ ¡Registro Exitoso!</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <h5 class="mb-3 text-center" style="color: #044201;">Datos Capturados:</h5>
+                    <ul class="list-group list-group-flush text-start">
+                        <li class="list-group-item"><strong>Nombre:</strong> <span id="modalNombre"></span></li>
+                        <li class="list-group-item"><strong>Correo:</strong> <span id="modalCorreo"></span></li>
+                        <li class="list-group-item"><strong>No. Control:</strong> <span id="modalControl"></span></li>
+                        <li class="list-group-item"><strong>CURP:</strong> <span id="modalCurp"></span></li>
+                        <li class="list-group-item"><strong>Teléfono:</strong> <span id="modalTel"></span></li>
+                        <li class="list-group-item"><strong>Edad:</strong> <span id="modalEdad"></span> años</li>
+                    </ul>
+                </div>
+                <div class="modal-footer justify-content-center border-0">
+                    <button type="button" class="btn btn-personalizado px-5" data-bs-dismiss="modal">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/utileria.js"></script>
     <script src="js/guiaExplorador.js"></script>
