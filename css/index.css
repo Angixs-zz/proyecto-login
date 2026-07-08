@@ -67,20 +67,68 @@ body {
     display: none;
 }
 
-/* Estilos para tu componente Guia Explorador */
+/* --- 1. ESTILOS PARA TOOLTIP JS --- */
 .tooltip-flotante {
     position: absolute;
-    /* ¡ESTA ES LA MAGIA QUE HACE QUE SIGA AL MOUSE! */
-    background-color: #044201;
-    /* Un verde oscuro que combine */
+    background-color: #1b4332;
     color: white;
     padding: 8px 12px;
     border-radius: 8px;
     font-size: 14px;
-    font-weight: bold;
-    z-index: 9999;
-    /* Para que siempre esté por encima de todo */
     pointer-events: none;
-    /* Evita que la cajita parpadee si el mouse la toca */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    /* No bloquea el ratón */
+    z-index: 1000;
+}
+
+/* --- 2. ESTILOS PARA LA CAJA DEL TOUR JS --- */
+.caja-tour-flotante {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    min-width: 300px;
+    text-align: center;
+    background-color: #1b4332;
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    z-index: 2000;
+    pointer-events: auto;
+    /* Permite clics */
+    font-family: Arial, sans-serif;
+}
+
+.caja-tour-flotante h3 {
+    color: #95d5b2;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.caja-tour-flotante p {
+    margin-bottom: 20px;
+    font-size: 15px;
+    color: white;
+}
+
+.caja-tour-flotante button {
+    width: 100%;
+    padding: 10px;
+    background-color: #2d6a4f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.caja-tour-flotante button:hover {
+    background-color: #40916c;
+}
+
+/* --- 3. EFECTO DE RESALTADO DEL TOUR --- */
+.tour-resaltado {
+    /* Usamos !important para asegurar que sobrescriba los estilos originales durante el tour */
+    border: 3px solid #6a2d2d !important;
+    border-radius: 8px;
 }

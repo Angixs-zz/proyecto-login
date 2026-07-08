@@ -90,4 +90,34 @@ document.addEventListener('DOMContentLoaded', () => {
             pantallaBienvenida.style.display = 'block';
         });
     }
+
+    // =====================================================================
+    // LÓGICA DEL TOUR PERSONALIZADO (GUIA EXPLORADOR)
+    // =====================================================================
+    const btnTour = document.getElementById('btnTour');
+    if (btnTour) {
+        btnTour.addEventListener('click', () => {
+            // Definimos los pasos usando el formato de tu funcion crearTour
+            let misPasos = [
+                {
+                    elemento: '#menu-despegable',
+                    titulo: 'Menú Lateral',
+                    mensaje: 'Da clic aquí para abrir o cerrar el panel izquierdo.'
+                },
+                {
+                    elemento: '#btnMenuUsuarios',
+                    titulo: 'Módulo de Usuarios',
+                    mensaje: 'Aquí podrás desplegar las opciones y entrar a la Captura.'
+                },
+                {
+                    elemento: '#para-salir',
+                    titulo: 'Tu Perfil',
+                    mensaje: 'Presiona sobre tu nombre para cerrar tu sesión.'
+                }
+            ];
+
+            // Mandamos a llamar a tu propia función que está en guiaExplorador.js
+            crearTour(misPasos);
+        });
+    }
 });
