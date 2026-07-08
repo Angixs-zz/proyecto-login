@@ -130,9 +130,7 @@ function calcularEdad(fechaNacimiento, elError = null) {
     return edad;
 }
 
-/*
--- Funcion: Validar si una persona es mayor de edad (CORREGIDA SIN ALERT)
-*/
+
 function esMayorDeEdad(fechaNacimiento, idError = null) {
     let elError = idError ? document.getElementById(idError) : null;
     if (elError) elError.innerText = "";
@@ -268,9 +266,6 @@ function validarPassword(password, idError = null) {
     }
     return true;
 }
-
-//--------------------------------------------------------------
-// Funciones propias (exactamente 2)
 
 /*
 -- Funcion: Solo Numeros (Funcion Auxiliar)
