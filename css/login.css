@@ -1,0 +1,46 @@
+/* Estilos personalizados para el Login (Combinados con la estructura de Bootstrap) */
+
+body {
+    background-color: #02530e;
+    /* Fondo verde oscuro */
+    font-family: Arial, sans-serif;
+}
+
+.login-container {
+    max-width: 500px;
+    background-color: white;
+    border-radius: 32px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.login-title {
+    color: #044201;
+}
+
+.login-label {
+    color: #000000;
+    font-weight: bold;
+}
+
+.login-input {
+    border-radius: 15px;
+}
+
+.login-image {
+    max-width: 100%;
+    width: 300px;
+    height: auto;
+}
+
+.login-btn {
+    background-color: #025b0c;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+.login-btn:hover {
+    background-color: #1aba05;
+    color: white;
+}
