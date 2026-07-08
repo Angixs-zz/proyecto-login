@@ -89,15 +89,6 @@ Es el panel completo del sistema. Lo dividimos usando etiquetas de HTML5:
 * **`<main>` (Zona Central)**: Aquí cargamos dinámicamente dos pantallas mediante JavaScript: la de bienvenida (`#pantallaBienvenida`) que incluye el botón del Tour interactivo, y el formulario de captura (`#seccionFormulario`) que tiene los campos del alumno con sus respectivos letreros de error abajo en rojo.
 * **Modal de Confirmación (`#modalRegistro`)**: Está al final del código. Contiene etiquetas `span` vacías (`#modalNombre`, `#modalEdad`, `#modalEstado`, etc.) que se rellenan automáticamente con los datos del alumno cuando todo es correcto, mostrando la ventana flotante de Bootstrap.
 
-##  Proceso de Creación (Paso a Paso)
-
-El desarrollo de nuestro sistema lo fuimos armando de forma ordenada y por etapas de la siguiente manera:
-
-### Fase 1: Base de la Interfaz y Estilos Visuales (HTML y CSS)
-* **Paso 1 (Estructura del Login) - [Miguel Angel]:** Inició creando el archivo `login.html`, colocando las cajas de texto para el correo y la contraseña, el botón de entrada.
-* **Paso 2 (Diseño del Login) - [Miguel Angel]:** Creó el archivo `css/login.css` usando estilos de Bootstrap combinados con estilos propios para centrar la tarjeta de acceso, poner el fondo verde de la escuela, etc. 
-* **Paso 3 (Estructura del Sistema) - [Yareli Yazmin]:** Creó la base del archivo `index.html` utilizando etiquetas estructurales fijas (`<header>`, `<aside>`, `<main>`). Aquí dejó maquetadas por separado la sección de la bienvenida y la tarjeta interna del formulario de captura.
-* **Paso 4 (Diseño y Animaciones del Sistema) - [Yareli Yazmin]:** Escribió la hoja de estilos `css/index.css`. Configuro el ancho del menú izquierdo en 260px y programó la clase `.oculto`, la cual empuja el menú hacia afuera de la pantalla (`margin-left: -260px`) con un efecto de movimiento suave asistido por transiciones de CSS (`transition: margin-left 0.3s ease`).
 ### 3. Cómo fluye la información en el sistema
 
 El camino que siguen los datos y el usuario a través de las pantallas funciona de la siguiente manera:

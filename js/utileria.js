@@ -6,19 +6,19 @@ function validarCorreo(correo, idError = null) {
     if (elError) elError.innerText = ""; // Limpia el error anterior
 
     let expresion = /^[^\s@]+@[^\s@.]+\.[^\s@]+$/;
-   
+
     if (correo === "") {
-        if(elError) elError.innerText = "Ingrese el correo electronico";
+        if (elError) elError.innerText = "Ingrese el correo electronico";
         else alert("Ingrese el correo electronico");
         return false;
     }
 
-  
+
     if (!expresion.test(correo)) {
         //  Se usa para saber si el correo NO cumple con la expresión regular
         //  test() es un método de las expresiones regulares. Sirve para probar si un texto cumple con el patrON
         //  o sea si lo que escribirmos en cuando se pidioo el correo cumple con la expresion regular q definimos salta la alerta
-        if(elError) elError.innerText = "El correo electronico no es valido. Ejemplo correcto: usuario@dominio.com";
+        if (elError) elError.innerText = "El correo electronico no es valido. Ejemplo correcto: usuario@dominio.com";
         else alert("El correo electronico no es valido. Ejemplo correcto: usuario@dominio.com");
         return false;
     }
@@ -29,17 +29,17 @@ function validarCorreo(correo, idError = null) {
 
 function soloLetras(texto, idError = null) {
     let elError = idError ? document.getElementById(idError) : null;
-    if (elError) elError.innerText = ""; 
+    if (elError) elError.innerText = "";
 
     let expresion = /^[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s]+$/;
 
     if (texto === "") {
-        if(elError) elError.innerText = "Por favor ingrese un valor, el campo no puede estar vacío";
+        if (elError) elError.innerText = "Por favor ingrese un valor, el campo no puede estar vacío";
         return false;
     }
 
     if (!expresion.test(texto)) {
-        if(elError) elError.innerText = "El campo solo debe contener letras y espacios";
+        if (elError) elError.innerText = "El campo solo debe contener letras y espacios";
         return false;
     }
 
@@ -49,25 +49,25 @@ function soloLetras(texto, idError = null) {
 
 function validarLongitud(numero, maxLongitud, idError = null) {
     let elError = idError ? document.getElementById(idError) : null;
-    if (elError) elError.innerText = ""; 
+    if (elError) elError.innerText = "";
 
     let valorATexto = String(numero).trim();
 
     if (valorATexto === "") {
-        if(elError) elError.innerText = "Por favor ingrese un valor numérico";
+        if (elError) elError.innerText = "Por favor ingrese un valor numérico";
         return false;
     }
 
     for (let i = 0; i < valorATexto.length; i++) {
         let caracter = valorATexto[i];
         if (caracter < "0" || caracter > "9") {
-            if(elError) elError.innerText = "Este campo solo debe contener números";
+            if (elError) elError.innerText = "Este campo solo debe contener números";
             return false;
         }
     }
 
     if (valorATexto.length > maxLongitud) {
-        if(elError) elError.innerText = "El valor numérico no debe tener mas de " + maxLongitud + " digitos";
+        if (elError) elError.innerText = "El valor numérico no debe tener mas de " + maxLongitud + " digitos";
         return false;
     }
 
@@ -80,7 +80,7 @@ function esMayorDeEdad(fechaNacimiento, idError = null) {
     if (elError) elError.innerText = "";
 
     if (fechaNacimiento === "") {
-        if(elError) elError.innerText = "Ingrese la fecha de nacimiento";
+        if (elError) elError.innerText = "Ingrese la fecha de nacimiento";
         return false;
     }
 
@@ -93,14 +93,12 @@ function esMayorDeEdad(fechaNacimiento, idError = null) {
     if (edad >= 18) {
         return true;
     } else {
-        if(elError) elError.innerText = "La persona debe ser mayor de edad para registrarse";
+        if (elError) elError.innerText = "La persona debe ser mayor de edad para registrarse";
         return false;
     }
 }
 
-/*
--- Funcion: Calcular edad (CORREGIDA SIN ALERT)
-*/
+
 function calcularEdad(fechaNacimiento, elError = null) {
     if (fechaNacimiento === "") {
         if (elError) elError.innerText = "Ingrese la fecha de nacimiento";
@@ -180,7 +178,7 @@ function validarPassword(password, idError = null) {
         Despues se retorna false para detener la validacion
     */
     if (password === "") {
-        if(elError) elError.innerText = "Ingrese la contraseña";
+        if (elError) elError.innerText = "Ingrese la contraseña";
         else alert("Ingrese la contraseña");
         return false;
     }
@@ -191,7 +189,7 @@ function validarPassword(password, idError = null) {
         de ahi se muestra una alerta y retorna false
     */
     if (password.length < 8) {
-        if(elError) elError.innerText = "La contraseña debe tener minimo 8 caracteres";
+        if (elError) elError.innerText = "La contraseña debe tener minimo 8 caracteres";
         else alert("La contraseña debe tener minimo 8 caracteres");
         return false;
     }
@@ -234,7 +232,7 @@ function validarPassword(password, idError = null) {
         y retorna false
     */
     if (!tieneMayuscula) {
-        if(elError) elError.innerText = "La contraseña debe tener al menos una letra mayuscula";
+        if (elError) elError.innerText = "La contraseña debe tener al menos una letra mayuscula";
         else alert("La contraseña debe tener al menos una letra mayuscula");
         return false;
     }
@@ -244,7 +242,7 @@ function validarPassword(password, idError = null) {
         y retorna false
     */
     if (!tieneMinuscula) {
-        if(elError) elError.innerText = "La contraseña debe tener al menos una letra minuscula";
+        if (elError) elError.innerText = "La contraseña debe tener al menos una letra minuscula";
         else alert("La contraseña debe tener al menos una letra minuscula");
         return false;
     }
@@ -254,7 +252,7 @@ function validarPassword(password, idError = null) {
         y retorna false
     */
     if (!tieneNumero) {
-        if(elError) elError.innerText = "La contraseña debe tener al menos un numero";
+        if (elError) elError.innerText = "La contraseña debe tener al menos un numero";
         else alert("La contraseña debe tener al menos un numero");
         return false;
     }
@@ -264,7 +262,7 @@ function validarPassword(password, idError = null) {
         y retorna false
     */
     if (!tieneEspecial) {
-        if(elError) elError.innerText = "La contraseña debe tener al menos un caracter especial";
+        if (elError) elError.innerText = "La contraseña debe tener al menos un caracter especial";
         else alert("La contraseña debe tener al menos un caracter especial");
         return false;
     }
