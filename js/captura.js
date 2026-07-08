@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (btnGuardar) {
         btnGuardar.addEventListener('click', (evento) => {
-            evento.preventDefault(); 
+            evento.preventDefault();
 
             // 1. Limpiar todos los mensajes de error previos
             document.getElementById('errorNombreCaptura').innerText = "";
@@ -30,11 +30,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             if (!validarCorreo(correo, 'errorCorreoCaptura')) {
-                return; 
+                return;
             }
 
             if (!validarLongitud(numcontrol, 6, 'errorNumControl')) {
-                return; 
+                return;
             }
 
             if (curp === "") {
@@ -58,11 +58,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             if (!validarPassword(contrasenia, 'errorPasswordCaptura')) {
-                return; 
+                return;
             }
 
             if (!esMayorDeEdad(fechaNac, 'errorFechaNacCaptura')) {
-                return; 
+                return;
             }
 
             alert("¡Alumno registrado con éxito en el sistema!");
