@@ -90,9 +90,7 @@ Es nuestra biblioteca global con funciones que podemos llamar en cualquier parte
 
 
 
-##  Proceso de Creación (Paso a Paso)
 
-El desarrollo de nuestro sistema lo fuimos armando de forma ordenada y por etapas de la siguiente manera:
 
 ## Proceso de Creación (Paso a Paso)
 
