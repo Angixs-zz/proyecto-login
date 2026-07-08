@@ -4,214 +4,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Captura de Usuario</title>
-
-
-
-
-    <style>
     
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            font-family: sans-serif;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        
-        header {
-            width: 100%;
-            display: flex;
-            justify-content: space-between; 
-            align-items: center;
-            padding: 10px 20px;
-            background-color: #f0f0f0; 
-            border-bottom: 1px solid #ccc;
-        }
-        .navbar-derecha {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            position: relative;
-        }
-        
-        details {
-            cursor: pointer;
-        }
-        details summary {
-            list-style: none; 
-        }
-        #menuSalir {
-            position: absolute;
-            right: 0;
-            top: 25px;
-            background: white;
-            border: 1px solid #ccc;
-            list-style: none;
-            padding: 5px 10px;
-            white-space: nowrap;
-            z-index: 10;
-        }
-
-        .contenedor-principal {
-            display: flex;
-            flex: 1; 
-            width: 100%;
-        }
-
-        #sidebar {
-            width: 250px;
-            background-color: #e8e8e8; 
-            padding: 20px;
-            border-right: 1px solid #ccc;
-        }
-        #sidebar ul {
-            list-style: none;
-            margin-top: 15px;
-        }
-        
-        #submenuCaptura {
-            display: none; 
-            padding-left: 15px;
-            margin-top: 5px;
-        }
-        #submenuCaptura a {
-            text-decoration: none;
-            color: blue;
-        }
-
-       
-        .contenido-central {
-            flex: 1; 
-            padding: 40px;
-            display: flex;
-            justify-content: center; 
-            align-items: flex-start;
-        }
-        
-        .seccion-bienvenida {
-            text-align: center;
-            margin-top: 50px;
-        }
-        
-        .contenedor-formulario {
-            display: none; 
-            width: 100%;
-            max-width: 500px; 
-        }
-        
-        .grupo-formulario {
-            margin-bottom: 15px;
-            display: flex;
-            flex-direction: column; 
-            gap: 5px;
-        }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="./css/index.css">
 </head>
-
-
 <body>
-    
-    <header>
+
+    <header class="navbar-custom text-white p-3 d-flex justify-content-between align-items-center shadow-sm">
+        <div class="d-flex align-items-center gap-3">
+            <button id="menu-despegable" class="btn btn-outline-light fw-bold">☰ Menú</button>
+            <h5 class="m-0 fw-bold d-none d-sm-block">Plataforma Estudiantil</h5>
+        </div>
         
-        <button id="menu-despegable">☰ Menú</button>
-     
-       <! nav: se utiliza para envolver el menú de navegación o los enlaces principales de un sitio web.  -->
         <nav class="navbar-derecha">
-
-        <! details: sirve para crear un elemento interactivo que el usuario puede abrir o cerrar dando un clic. -->
-                <details id="para-salir">
-                
-                <!summary:  Es la frase o elemento sobre el cual la persona tiene que hacer clic para que lo que está oculto abajo se muestre-->
-                <summary>
-
-                    <!span: sirve como un contenedor en línea-->
+            <details id="para-salir" class="position-relative">
+                <summary class="fw-bold" style="list-style: none; cursor: pointer; user-select: none;">
                     <span id="nomusuario">Nombre de Usuario</span> ▼
-              
                 </summary>
-
-                    <!ul: agrupar un conjunto de elementos que están relacionados entre sí,-->
-                <ul id="menuSalir">
-
-                    <!Para meter cada uno de los elementos de la lista,-->
-                    <li><a href="login.html" id="btnSalir">Salir del sistema</a></li>
+                
+                <ul id="menuSalir" class="position-absolute end-0 mt-2 bg-white rounded shadow p-2 list-unstyled" style="min-width: 160px; z-index: 1000;">
+                    <li><a href="login.html" id="btnSalir" class="text-decoration-none text-danger fw-bold d-block px-2 py-1">Salir del sistema</a></li>
                 </ul>
-
             </details>
         </nav>
     </header>
 
-
-    <!contenido principal -->
     <main class="contenedor-principal">
 
-        <!aside: marca contenido que está relacionadamente de forma secundaria con el contenido principal de la página-->
-        <aside id="menulateral">
-
-            <h2>Mi Sistema</h2>
+        <aside id="menulateral" class="p-3 shadow-sm">
+            <div class="text-center mb-4 mt-2">
+                <img src="./img/logo.png" alt="Logo" style="width: 80px;">
+            </div>
             
-            <ul>
+            <ul class="list-unstyled">
                 <li>
-                    <button id="btnMenuUsuarios">Usuarios ▼</button>
-                    <ul id="submenuCaptura">
-                        <!href="#": que sirve para crear un enlace que apunte a la misma página en la que ya estás parado-->
-                        <li><a href="#" id="enlaceCaptura">Captura</a></li>
+                    <button id="btnMenuUsuarios" class="btn btn-light w-100 text-start fw-bold mb-2 shadow-sm">Usuarios ▼</button>
+                    <ul id="submenuCaptura" class="list-unstyled ms-3">
+                        <li><a href="#" id="enlaceCaptura" class="text-decoration-none text-primary fw-bold p-2 d-block">Captura</a></li>
                     </ul>
                 </li>
             </ul>
         </aside>
 
-
-        <section class="contenido-central">
+        <section class="contenido-central bg-light">
             
-            <div class="seccion-bienvenida" id="pantallaBienvenida">
-                <h1>¡Bienvenido al Sistema!</h1>
-                <p>Por favor, selecciona una opción del menú lateral para comenzar.</p>
+            <div class="seccion-bienvenida text-center mt-5" id="pantallaBienvenida">
+                <h1 class="titulo-sistema">¡Bienvenido al Sistema!</h1>
+                <p class="text-secondary fs-5 mt-3">Por favor, selecciona una opción del menú lateral para comenzar.</p>
             </div>
 
-            
-            <div class="contenedor-formulario" id="seccionFormulario">
-                <h1>Captura de Usuario</h1>
-                <p class="subtitulo">Completa los datos que se solicitan</p>
+            <div class="tarjeta-formulario" id="seccionFormulario">
+                <h2 class="titulo-sistema text-center mb-1">Captura de Usuario</h2>
+                <p class="text-secondary text-center mb-4">Completa los datos del alumno</p>
 
                 <form class="formulario" onsubmit="return false;">
-                    <div class="grupo-formulario">
-                        <label for="nombre">Nombre Completo</label>
-                        <input type="text" id="nombre" placeholder="Ej. Juan Pérez">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label fw-bold">Nombre Completo</label>
+                        <input type="text" id="nombre" class="form-control form-control-lg" style="border-radius: 15px;" placeholder="Ej. Juan Pérez">
                     </div>
 
-                    <div class="grupo-formulario">
-                        <label for="correo">Correo Electrónico</label>
-                        <input type="text" id="correo" placeholder="ejemplo@correo.com">
+                    <div class="mb-3">
+                        <label for="correo" class="form-label fw-bold">Correo Electrónico</label>
+                        <input type="email" id="correo" class="form-control form-control-lg" style="border-radius: 15px;" placeholder="ejemplo@correo.com">
+                        <div id="errorCorreoCaptura" class="text-danger small mt-1 fw-bold"></div>
                     </div>
         
-                    <div class="grupo-formulario">
-                        <label for="numcontrol">Ingresa tu número de control (Máximo 6 dígitos)</label>
-                        <input type="number" id="numcontrol" placeholder="Ej. 123456">
+                    <div class="mb-3">
+                        <label for="numcontrol" class="form-label fw-bold">Número de control (Máximo 6 dígitos)</label>
+                        <input type="number" id="numcontrol" class="form-control form-control-lg" style="border-radius: 15px;" placeholder="Ej. 123456">
+                        <div id="errorNumControl" class="text-danger small mt-1 fw-bold"></div>
                     </div>
 
-                    <div class="grupo-formulario">
-                        <label for="Contraseña">Contraseña</label>
-                        <input type="password" id="Contraseña" placeholder="Mínimo 8 caracteres, mayúscula, número y símbolo">
+                    <div class="mb-3">
+                        <label for="curp" class="form-label fw-bold">CURP</label>
+                        <input type="text" id="curp" class="form-control form-control-lg" style="border-radius: 15px; text-transform: uppercase;" placeholder="Ej. PAAA000000HDFXXXXX0">
+                        <div id="errorCurp" class="text-danger small mt-1 fw-bold"></div>
                     </div>
 
-                    <div class="grupo-formulario">
-                        <label for="fechaNac">Fecha de Nacimiento</label>
-                        <input type="date" id="fechaNac">
+                    <div class="mb-3">
+                        <label for="telefono" class="form-label fw-bold">Número Telefónico</label>
+                        <input type="tel" id="telefono" class="form-control form-control-lg" style="border-radius: 15px;" placeholder="Ej. 9511234567">
+                        <div id="errorTelefono" class="text-danger small mt-1 fw-bold"></div>
                     </div>
 
-                    <button type="submit" id="btnGuardar">Registrar Alumno</button>
+                    <div class="mb-3">
+                        <label for="Contraseña" class="form-label fw-bold">Contraseña</label>
+                        <input type="password" id="Contraseña" class="form-control form-control-lg" style="border-radius: 15px;" placeholder="Mínimo 8 caracteres">
+                        <div id="errorPasswordCaptura" class="text-danger small mt-1 fw-bold"></div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="fechaNac" class="form-label fw-bold">Fecha de Nacimiento</label>
+                        <input type="date" id="fechaNac" class="form-control form-control-lg" style="border-radius: 15px;">
+                    </div>
+
+                    <div class="d-grid mt-4">
+                        <button type="submit" id="btnGuardar" class="btn btn-lg btn-personalizado fw-bold">Registrar Alumno</button>
+                    </div>
                 </form>
             </div>
-        </section>
 
+        </section>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/utileria.js"></script>
     <script src="js/menu.js"></script>
-
 </body>
 </html>

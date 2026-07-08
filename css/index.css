@@ -1,0 +1,68 @@
+
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar-custom {
+    background-color: #02530e; 
+}
+
+#menulateral {
+    width: 260px;
+    background-color: white;
+    border-right: 1px solid #ddd;
+    transition: margin-left 0.3s ease; 
+}
+
+#menulateral.oculto {
+    margin-left: -260px;
+}
+
+.contenedor-principal {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+}
+
+.contenido-central {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+.tarjeta-formulario {
+    background-color: white;
+    border-radius: 32px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    padding: 40px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.titulo-sistema {
+    color: #044201; 
+    font-weight: bold;
+}
+
+.btn-personalizado {
+    background-color: #025b0c;
+    color: white;
+    border-radius: 10px;
+}
+
+.btn-personalizado:hover {
+    background-color: #1aba05;
+    color: white;
+}
+
+#seccionFormulario {
+    display: none;
+}
+#submenuCaptura {
+    display: none;
+}
