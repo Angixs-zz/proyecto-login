@@ -65,7 +65,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            alert("¡Alumno registrado con éxito en el sistema!");
+            //  LLENAR Y MOSTRAR EL MODAL
+
+            // 1. Llenamos los span vacíos del HTML con los valores
+            document.getElementById('modalNombre').innerText = nombre;
+            document.getElementById('modalCorreo').innerText = correo;
+            document.getElementById('modalControl').innerText = numcontrol;
+            document.getElementById('modalCurp').innerText = curp.toUpperCase();
+            document.getElementById('modalTel').innerText = telFormateado;
+
+            // 2. Calculamos la edad y la inyectamos
+            let edadCalculada = calcularEdad(fechaNac);
+            document.getElementById('modalEdad').innerText = edadCalculada;
+
+            // 3. Levantamos el modal usando la librería de Bootstrap
+            let modalRegistro = new bootstrap.Modal(document.getElementById('modalRegistro'));
+            modalRegistro.show();
+
             document.querySelector('.formulario').reset();
         });
     }
