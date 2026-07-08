@@ -42,6 +42,11 @@
 </p>
 
 <p align="center">
+  <strong>Numero de Equipo:</strong><br>
+  8
+</p>
+
+<p align="center">
   <strong>Fecha de entrega:</strong><br>
   08 de julio del 2026
 </p>
