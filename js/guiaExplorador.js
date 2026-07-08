@@ -27,21 +27,27 @@ function agregarAyuda(idElemento, mensaje) {
     // se va a ejecutar una fucion
     elemento.addEventListener("mousemove", moverTooltip);
 
-    // esta funcion va permitir que la cajita siga al mouse
+    // esta funcion va permitir que la cajita siga al mouse de forma inteligente
     function moverTooltip(moverMouse) {
-        // Colocamos dentro de la cajita el mensaje de ayuda que se recibio como parametro mucho antes
+        // Colocamos dentro de la cajita el mensaje de ayuda
         cajitaGlobal.innerText = mensaje;
-
-        // Mostramos la cajita porque el mouse esta pasando el mouse sobre el elemento
         cajitaGlobal.style.display = "block";
 
-        // Movemos la cajita un poco a la derecha del mouse para que no se tape
-        // el pageX es la posionn en x del mouse y pa q no se tape pues le sumamos 15
-        cajitaGlobal.style.left = (moverMouse.pageX + 15) + "px";
+        let posX = moverMouse.pageX + 15;
+        let posY = moverMouse.pageY + 15;
 
-        // Movemos la cajita un poco abajo del mouse para que no se tape
-        // el pageY es la posicionn en y del mouse y pa q no se tape pues le sumamos 15
-        cajitaGlobal.style.top = (moverMouse.pageY + 15) + "px";
+        // Calculamos el ancho de la ventana y de la cajita
+        let anchoVentana = window.innerWidth;
+        let anchoCajita = cajitaGlobal.offsetWidth;
+
+        // Si la cajita se sale por la derecha de la pantalla
+        if (posX + anchoCajita > anchoVentana) {
+            // La movemos hacia la izquierda del mouse en lugar de la derecha
+            posX = moverMouse.pageX - anchoCajita - 15;
+        }
+
+        cajitaGlobal.style.left = posX + "px";
+        cajitaGlobal.style.top = posY + "px";
     }
 
     /*function moverTooltip() {
