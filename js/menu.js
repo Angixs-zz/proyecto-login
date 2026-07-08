@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // === ACCIÓN 1: OCULTAR/MOSTRAR SIDEBAR COMPLETO ===
+    // OCULTAR/MOSTRAR MENU DESPEGABLE COMPLETO
     const menuDespegable = document.getElementById('menu-despegable');
     const menulateral = document.getElementById('menulateral');
 
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // === ACCIÓN 2: DESPLEGAR SUBMENÚ "CAPTURA" ===
+    // DESPLEGAR SUBMENÚ "CAPTURA"
     const btnMenuUsuarios = document.getElementById('btnMenuUsuarios');
     const submenuCaptura = document.getElementById('submenuCaptura');
 
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // === ACCIÓN 3: INTERCAMBIAR BIENVENIDA POR FORMULARIO ===
+    // INTERCAMBIAR BIENVENIDA POR FORMULARIO 
     const enlaceCaptura = document.getElementById('enlaceCaptura');
     const pantallaBienvenida = document.getElementById('pantallaBienvenida');
     const seccionFormulario = document.getElementById('seccionFormulario');
@@ -32,18 +32,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if (enlaceCaptura && pantallaBienvenida && seccionFormulario) {
         enlaceCaptura.addEventListener('click', (e) => {
             e.preventDefault(); 
-            pantallaBienvenida.style.display = 'none';   // Esconde bienvenida
-            seccionFormulario.style.display = 'block';    // Muestra formulario
+            pantallaBienvenida.style.display = 'none';  
+            seccionFormulario.style.display = 'block';    
         });
     }
 
-    // ACCIÓN 4: REGRESAR A LA PANTALLA PRINCIPAL ===
+    // REGRESAR A LA PANTALLA PRINCIPAL
     const btnInicio = document.getElementById('btnInicio');
 
     if (btnInicio && pantallaBienvenida && seccionFormulario) {
         btnInicio.addEventListener('click', () => {
-            seccionFormulario.style.display = 'none';     // Esconde el formulario
-            pantallaBienvenida.style.display = 'block';   // Vuelve a mostrar la bienvenida
+            seccionFormulario.style.display = 'none';     
+            pantallaBienvenida.style.display = 'block';   
         });
     }
 });

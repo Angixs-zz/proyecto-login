@@ -1,57 +1,19 @@
 
 
-/*
--- Funcion: Validar correo 
--- ¿Que hace? Valida que el correo electronico siga y tenga un formtato validoo
--- Parametros: ocupa el correo, que es una cadena de texto que se ingresa
--- Retorno: true si el correo es valido, false si no lo es
-*/
+
 function validarCorreo(correo, idError = null) {
     let elError = idError ? document.getElementById(idError) : null;
     if (elError) elError.innerText = ""; // Limpia el error anterior
 
     let expresion = /^[^\s@]+@[^\s@.]+\.[^\s@]+$/;
-    //Ocupa una expresioon regular y se desglosa asi
-    // La barra diagonal / nos dice que inicia la expresion
-    // ^ Aqui nos dice que va a inciar el texto y luego ya vienen los grupoos a validar
-    // [^\s@]+ 
-    // [] Nos dicen que es un grupo de caracteres que van a ser permitidoos o no permitidos
-    // Ahora tenemos ^ que cuando esta en los [] signfican negacion o que no van a permitir algoo
-    // despues teenemos \s significa espacios en blanco, y como teniamos ^ pues dice que no va a permitir espacioos en blanco
-    // sigue @ y dice que no se permiten un arrooba en esta parte
-    // y tambien no aceptara puntos
-    //despues se cierra el grupo con ]
-    // despues tenemos + que significa que puede haber uno o varios caracteres
-    // este blooque nooso dice que deben existir 1 o mas caracteres que no sean espacios en blancoos ni arrobas
-    // Ahoooora sigue una arroba donde nos dice si oo si debe exisitir un arriba despues del bloque anterior    
-    // Ahooora comienza ootro bloque para validar y se reptire casi los mismo
-    // En este pues lo mismoo comienza con ^ y son los caracteres que no va a permitir, no permite espacios en blanco nin arrobas ni puntos
-    // igual sigue un + q noos dice que deben tener 1 o mas caracteres
-    // Despues sigue \. que nos dice que obligatoriamente debe haber un punto despues del bloque anterior
-    // Por ultimo tenemos el ultimo bloque que es igual al anterior, no se permiten espacios en blanco, ni arroobas y que hayan mas o uno caracteres
-    // aqui si permitimos punto porque pueden tener como itoxaca.edu.mx
-    // De ahi tenemos el el signoo de $ que significa que hasta aqui termina el texto y 
-    // / indica que termina la expresion regular
-
-
-    /*
-    Validacion 1: Correo vacio
-        Si encuentra que el correo esta vacio entonces lanzara una alerta
-        La alerta indica que debe ingresar el correo electronico
-        Y de ahi retornara false para que no continue con la validacion
-    */
+   
     if (correo === "") {
         if(elError) elError.innerText = "Ingrese el correo electronico";
         else alert("Ingrese el correo electronico");
         return false;
     }
 
-    /*
-    Validacion 2: Formato de correo
-        Si encuentra que el correo no tiene un formato valido entonces lanzara una alerta
-        La alerta indica que debe ingresar un correo electronico valido
-        Y de ahi retornara false para que no continue con la validacion
-    */
+  
     if (!expresion.test(correo)) {
         //  Se usa para saber si el correo NO cumple con la expresión regular
         //  test() es un método de las expresiones regulares. Sirve para probar si un texto cumple con el patrON
@@ -64,119 +26,80 @@ function validarCorreo(correo, idError = null) {
     return true;
 }
 
-/*
--- Funcion: Solo letras
--- ¿Que hace? Valida que el campo sooloo tenga letras y no numeros ni otro tipo de caracteres
--- Parametros: ocupa el texto que se ingresa en el campo a validar
--- Retorno: true si el texto es valido, false si no lo es
-*/
-function soloLetras(texto) {
+
+function soloLetras(texto, idError = null) {
+    let elError = idError ? document.getElementById(idError) : null;
+    if (elError) elError.innerText = ""; 
+
     let expresion = /^[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s]+$/;
-    /*Se define una expresion regular
-        Las diagonales // - Indica el inicio y fin de una expresion regular
-        ^ Indica que el texto va a comenzar
-        [] Ahora tenemos un grupooo de caracteres
-        Dentro de loos corchetes va a aceptar Letras mayusculas de la A-Z
-        letras minusculas a/z, y de ahi acentos para letras mayusculas y minusculas
-        tambien la Ñ y ñ asi como dieres en Ü y ü
-        Por ultimo tenemos el signo mas que indican que son 1 o mas caracteres
-        y luego tenemos $ que nos dice el fin de lo que validara
 
-    */
-
-    /*
-    Validacion 1: Campo vacio
-        Si encuentra que el campo esta vacio entonces lanzara una alerta
-        La alerta indica que debe ingresar texto en el campo
-        Y de ahi retornara false para que no continue con la validacion
-    */
     if (texto === "") {
-        alert("Por favor ingrese un valor, el campo no puede estar vacío");
+        if(elError) elError.innerText = "Por favor ingrese un valor, el campo no puede estar vacío";
         return false;
     }
 
-    /*
-    Validacion 2: Formato del texto
-        Si encuentra que el texto no cumple con la expresion regular entonces lanzara una alerta
-        La alerta indica que el campo solo debe contener letras y espacios
-        Y de ahi retornara false para que no continue con la validacion
-    */
     if (!expresion.test(texto)) {
-        alert("El campo solo debe contener letras y espacios");
+        if(elError) elError.innerText = "El campo solo debe contener letras y espacios";
         return false;
     }
 
     return true;
 }
 
-/*
--- Funcion: Validar Longitud de un numeroo
--- ¿Que hace? Valida que el numero ingresado en un campoo noo pase mas de una cierta longitud
--- Parametros: ocupa el campo de numeroo donde ingresara y un campo donde se declarara la longitud
--- Retorno: true si el texto es valido, false si no lo es
-*/
-function validarLongitud(numero, maxLongitud) {
-    let valorATexto = String(numero).trim();
-    // Convertimos el numero a texto y eliminamos los espacios en blanco para que se mas facil contar los digitos con .length
 
-    /*
-    Validacion 1: Campo vacio
-        Si encuentra que el campo esta vacio entonces lanzara una alerta
-        La alerta indica que debe ingresar un valor numérico
-        Y de ahi retornara false para que no continue con la validacion
-    */
+function validarLongitud(numero, maxLongitud, idError = null) {
+    let elError = idError ? document.getElementById(idError) : null;
+    if (elError) elError.innerText = ""; 
+
+    let valorATexto = String(numero).trim();
+
     if (valorATexto === "") {
-        alert("Por favor ingrese un valor numérico");
+        if(elError) elError.innerText = "Por favor ingrese un valor numérico";
         return false;
     }
 
-
-    // Se utiliza un for para recoorrer el textoo empezando desde 0 y con limite del tamaño del texto
     for (let i = 0; i < valorATexto.length; i++) {
         let caracter = valorATexto[i];
-        /* Se usa caracter donde tomara el valor del numero que se encuentre en la poosicion segun i
-         Por ejemploo 
-        Si el valor es 2345
-        i es 0 el valor de caracter es 2
-        i es 1 el valor de caracter es 3
-        i es 2 el valor de caracter es 4
-        i es 3 el valor de caracter es 5
-        // Si el caracter es menor a "0" o mayor a "9" entonces quiere decir que no es un numero y lanzara una alerta
-        // La alerta indica que el campo solo debe contener números
-        // Y de ahi retornara false para que no continue con la validacion
-       */
         if (caracter < "0" || caracter > "9") {
-            alert("Este campo solo debe contener números");
+            if(elError) elError.innerText = "Este campo solo debe contener números";
             return false;
         }
     }
 
-    /*
-    Validacion 2: Longitud del texto
-        Si encuentra que la longitud del texto es mas grande que la longitud maxima entonces lanzara una alerta
-        La alerta indica que el valor numerico no debe tener mas de "+ maxLongitud + " digitos"
-        Y de ahi retornara false para que no continue con la validacion
-    */
     if (valorATexto.length > maxLongitud) {
-        alert("El valor numérico no debe tener mas de " + maxLongitud + " digitos");
+        if(elError) elError.innerText = "El valor numérico no debe tener mas de " + maxLongitud + " digitos";
         return false;
     }
 
     return true;
 }
-/*
--- Funcion: Calcular edad
--- ¿Que hace? Calcula la edad de una persona con base en su fecha de nacimiento
--- Parametros: ocupa el campo de fecha de nacimiento donde ingresara el valor
--- Retorno: la edad de la persona en numero entero
-*/
+
+
+function esMayorDeEdad(fechaNacimiento, idError = null) {
+    let elError = idError ? document.getElementById(idError) : null;
+    if (elError) elError.innerText = "";
+
+    if (fechaNacimiento === "") {
+        if(elError) elError.innerText = "Ingrese la fecha de nacimiento";
+        return false;
+    }
+
+    let edad = calcularEdad(fechaNacimiento);
+
+    if (edad === false) {
+        return false;
+    }
+
+    if (edad >= 18) {
+        return true;
+    } else {
+        if(elError) elError.innerText = "La persona debe ser mayor de edad para registrarse";
+        return false;
+    }
+}
+
 function calcularEdad(fechaNacimiento) {
-    /*
-    Validacion 1: Campo vacio
-        Si encuentra que el campo esta vacio entonces lanzara una alerta
-        La alerta indica que debe ingresar la fecha de nacimiento
-        Y de ahi retornara false para que no continue con la validacion
-    */
+  
     if (fechaNacimiento === "") {
         alert("Ingrese la fecha de nacimiento");
         return false;
@@ -188,12 +111,7 @@ function calcularEdad(fechaNacimiento) {
     let nacimiento = new Date(fechaNacimiento);
     let fechaActual = new Date();
 
-    /*
-    Validacion 2: Fecha de nacimiento mayor a la fecha actual
-        Si encuentra que la fecha de nacimiento es mayor a la fecha actual entonces lanzara una alerta
-        La alerta indica que la fecha de nacimiento no puede ser mayor a la fecha actual
-        Y de ahi retornara false para que no continue con la validacion
-    */
+    
     if (nacimiento > fechaActual) {
         alert("La fecha de nacimiento no puede ser mayor a la fecha actual");
         return false;
@@ -227,37 +145,7 @@ function calcularEdad(fechaNacimiento) {
 -- Parametros: Recibe la fecha de nacimiento ingresada por el usuario
 -- Retorno: true si la persona es mayor de edad, false si no cumple o si la fecha no es valida
 */
-function esMayorDeEdad(fechaNacimiento) {
 
-    /*
-    Reutilizamos la funcion anterior de calcular edad, y hacemos lo siguiente
-        primero a edad va a ser igual a lo que regrese la funcion calcularEdad
-    */
-    let edad = calcularEdad(fechaNacimiento);
-
-    // Una vez que edad tenga un valor va a validar algunas cosas
-
-    /*
-    Validacion 1: edad es false
-        Si encuentra que la edad es false entonces retornara false
-    */
-    if (edad === false) {
-        return false;
-    }
-
-    /*
-    Validacion 2: edad es mayor o igual a 18
-        Si encuentra que la edad es mayor o igual a 18 entonces retornara true
-        Si no entonces lanzara una alerta indicando que la persona debe ser mayor de edad para registrarse
-        Y retornara false
-    */
-    if (edad >= 18) {
-        return true;
-    } else {
-        alert("La persona debe ser mayor de edad para registrarse");
-        return false;
-    }
-}
 
 /*
 -- Funcion: Validar contraseña segura
@@ -511,4 +399,9 @@ function generarRFCBasico(nombre, apellidoPaterno, apellidoMaterno, fechaNacimie
     let rfcBasico = primerasLetrasPaterno + primeraLetraMaterno + primeraLetraNombre + año + mes + dia;
 
     return rfcBasico;
+}
+
+function validarCURP(curp) {
+    var expresion = /^[A-Z]{4}\d{6}[HM][A-Z]{5}[A-Z0-9]\d$/;
+    return expresion.test(curp.toUpperCase());
 }
