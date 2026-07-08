@@ -88,7 +88,7 @@ Es el panel completo del sistema. Lo dividimos usando etiquetas de HTML5:
 
 El desarrollo de nuestro sistema lo fuimos armando de forma ordenada y por etapas de la siguiente manera:
 
-### 🔹 Fase 1: Base de la Interfaz y Estilos Visuales (HTML y CSS)
+### Fase 1: Base de la Interfaz y Estilos Visuales (HTML y CSS)
 * **Paso 1 (Estructura del Login) - [Miguel Angel]:** Inició creando el archivo `login.html`, colocando las cajas de texto para el correo y la contraseña, el botón de entrada.
 * **Paso 2 (Diseño del Login) - [Miguel Angel]:** Creó el archivo `css/login.css` usando estilos de Bootstrap combinados con estilos propios para centrar la tarjeta de acceso, poner el fondo verde de la escuela, etc. 
 * **Paso 3 (Estructura del Sistema) - [Yareli Yazmin]:** Creó la base del archivo `index.html` utilizando etiquetas estructurales fijas (`<header>`, `<aside>`, `<main>`). Aquí dejó maquetadas por separado la sección de la bienvenida y la tarjeta interna del formulario de captura.
@@ -136,15 +136,15 @@ Es nuestra biblioteca global con funciones que podemos llamar en cualquier parte
 
 El desarrollo del proyecto lo fuimos armando de forma ordenada y por etapas.
 
-### 🔹 Fase 2: Maquetación y Diseño del Panel Principal (HTML y CSS)
+###  Fase 2: Maquetación y Diseño del Panel Principal (HTML y CSS)
 * **Paso 1 (Esqueleto del Sistema) - [Yareli Yazmin]:** Creé la base de nuestro archivo principal `index.html` utilizando etiquetas estructurales fijas de HTML5 (`<header>`, `<aside>` y `<main>`). En esta estructura dejé separados y listos los dos bloques grandes de la zona de trabajo: la tarjeta con el mensaje de bienvenida y la sección oculta del formulario de captura del alumno.
 * **Paso 2 (Animaciones y Estilos del Panel) - [Yareli Yazmin]:** Escribí la hoja de estilos `css/index.css`. Aquí configuré el menú lateral izquierdo  y programó la clase `.oculto`.  De esta forma, el menú se desliza suavemente hacia un lado al ocultarse en lugar de desaparecer de golpe.
 
-### 🔹 Fase 3: Lógica de la Plataforma, Seguridad y Vistas (JavaScript)
+###  Fase 3: Lógica de la Plataforma, Seguridad y Vistas (JavaScript)
 * **Paso 3 (Desarrollo de la Biblioteca Global) - [Yareli Yazmin / Equipo]:** Con las interfaces listas, trabajamos en conjunto en el archivo `js/utileria.js`. Aquí programamos las funciones lógicas principales, las expresiones regulares y los ciclos para validar los formatos de correo, contraseñas, longitud de caracteres y CURP.
 * **Paso 4 (Integración del Clúster y Código Reutilizable) - [Miguel Angel]:** Me encargué de armar el clúster de archivos e insertar el código reutilizable de la `guiaExplorador.js` y las utilerías. Aunque estos archivos ya tenían muchas líneas de comentarios y código propios de su autor original (lo que a simple vista hace parecer que escribí más líneas desde cero), mi verdadero trabajo fue insertarlos, conectarlos y adaptarlos para que funcionaran sin conflictos en nuestro proyecto. Además, me encargué de toda la lógica del archivo `login.js` para validar el acceso y controlar la sesión.
 
-### 🔹 Fase 4: Formulario Inteligente, Modal de Resumen y Tour Asistido
+###  Fase 4: Formulario Inteligente, Modal de Resumen y Tour Asistido
 * **Paso 5 (Validaciones sin Alerts) - [Yareli Yazmin / Equipo]:** Desarrollamos el script `js/captura.js` para controlar el formulario de alumnos. Lo configuramos de modo que, al presionar registrar, limpie los errores viejos y revise los campos uno por uno. Si detecta datos vacíos o formatos incorrectos en el teléfono o la CURP, frena todo con un `return` y pinta los textos de advertencia en color rojo directamente abajo de la caja de texto afectada.
 * **Paso 6 (Integración e Inyección en el Modal) - [Yareli Yazmin]:** Agregué el componente del modal de Bootstrap (`#modalRegistro`) al fondo de mi `index.html`. Después, en `js/captura.js`, programé la lógica que recibe los años de la función `calcularEdad` y evalúa una condición: si el alumno tiene 18 años o más, escribe "Mayor de edad",  y si es menor, inyecta "Menor de edad" . Al pasar las validaciones, el script inyecta todos los datos en los `<span>` del modal y levanta la ventana flotante de confirmación antes de resetear el formulario.
 * **Paso 7 (Lógica de la Ventana Modal) - [Miguel Angel]:** Apoyé armando el clúster de los datos y estructurando la lógica de la ventana modal, asegurándome de que toda la información capturada y validada fluyera de forma correcta hacia el componente flotante para mostrarse al usuario.
