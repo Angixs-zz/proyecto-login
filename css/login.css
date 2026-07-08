@@ -1,5 +1,9 @@
 /* Estilos personalizados para el Login (Combinados con la estructura de Bootstrap) */
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-color: #02530e;
     /* Fondo verde oscuro */
@@ -29,7 +33,7 @@ body {
 
 .login-image {
     max-width: 100%;
-    width: 300px;
+    width: 200px;
     height: auto;
 }
 
@@ -43,4 +47,25 @@ body {
 .login-btn:hover {
     background-color: #1aba05;
     color: white;
+}
+
+/* Responsive para celulares */
+@media (max-width: 600px) {
+    body {
+        padding: 15px;
+    }
+
+    .login-container {
+        width: 100%;
+        padding: 18px !important;
+    }
+
+    .login-title {
+        font-size: 24px;
+    }
+
+    .login-input,
+    .login-btn {
+        font-size: 15px;
+    }
 }
