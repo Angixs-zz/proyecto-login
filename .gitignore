@@ -1,0 +1,26 @@
+# dependencias
+node_modules/
+
+# variables de entorno o datos privados
+.env
+.env.local
+
+# archivos de logs
+*.log
+npm-debug.log*
+
+# carpetas generadas automaticamente
+dist/
+build/
+
+# configuracion local del editor
+.vscode/
+.idea/
+
+# archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# archivos temporales
+*.tmp
+*.temp
